@@ -23,7 +23,7 @@ source modules/timezone.Pifile
 # and Wi-Fi will be blocked with rfkill
 source modules/wifi.Pifile
 
-RUN << EOF
+RUN << YUNOHOSTEOF
 # Yunohost install
 #!/bin/bash
 
@@ -620,4 +620,4 @@ function clean_image() {
 ###############################################################################
 
 main
-EOF
+YUNOHOSTEOF
