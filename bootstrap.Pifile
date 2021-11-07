@@ -145,10 +145,10 @@ function main()
         step clean_image || die "Unable to clean image"
     fi
 
-    if is_raspbian ; then
+    # if is_raspbian ; then
         # Reboot should be done before postinstall to be able to run iptables rules
         # reboot
-    fi
+    # fi
 
     info "Installation logs are available in $YUNOHOST_LOG"
     success "YunoHost installation completed !"
