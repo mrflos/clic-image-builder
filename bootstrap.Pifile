@@ -23,7 +23,7 @@ source modules/timezone.Pifile
 # and Wi-Fi will be blocked with rfkill
 source modules/wifi.Pifile
 
-RUN << YUNOHOSTEOF
+RUN << EOF
 # Yunohost install
 #!/bin/bash
 
@@ -410,7 +410,7 @@ function setup_package_source() {
 }
 
 function register_debconf() {
-    debconf-set-selections << EOF
+    debconf-set-selections << YEOF
 slapd slapd/password1 password yunohost
 slapd slapd/password2 password yunohost
 slapd slapd/domain    string yunohost.org
@@ -428,7 +428,7 @@ nslcd	nslcd/ldap-binddn	string
 nslcd	nslcd/ldap-base	string	dc=yunohost,dc=org
 libnss-ldapd    libnss-ldapd/nsswitch multiselect group, passwd, shadow
 postsrsd postsrsd/domain string yunohost.org
-EOF
+YEOF
 }
 
 function workarounds_because_sysadmin_sucks() {
@@ -554,7 +554,7 @@ function conclusion() {
     [[ -z "$local_ip" ]] || local_ip=$(echo -e "\n    - https://$local_ip/ (local IP, if self-hosting at home)")
     [[ -z "$global_ip" ]] || global_ip=$(echo -e "\n    - https://$global_ip/ (global IP, if you're on a VPS)")
 
-    cat << EOF
+    cat << YEOF
 ===============================================================================
 You should now proceed with Yunohost post-installation. This is where you will
 be asked for :
@@ -570,7 +570,7 @@ time to read the administator documentation and in particular the sections
 'Finalizing your setup' and 'Getting to know YunoHost'. It is available at
 the following URL : https://yunohost.org/admindoc
 ===============================================================================
-EOF
+YEOF
 }
 
 ###############################################################################
@@ -620,4 +620,4 @@ function clean_image() {
 ###############################################################################
 
 main
-YUNOHOSTEOF
+EOF
