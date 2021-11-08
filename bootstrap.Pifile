@@ -24,7 +24,7 @@ source modules/timezone.Pifile
 source modules/wifi.Pifile
 
 # Increase side of our image to accomodate installs
-PUMP 500M
+PUMP 10000M
 
 RUN << EOF
 curl https://install.yunohost.org/ -o yuno.sh
