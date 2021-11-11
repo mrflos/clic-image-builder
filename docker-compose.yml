@@ -1,0 +1,9 @@
+version: '3'
+services:
+    pimod:
+        build: .
+        privileged: true
+        volumes:
+            - .:/pimod
+        env_file:
+            - .env
